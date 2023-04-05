@@ -18,7 +18,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+  colorscheme = "tokyonight",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -32,11 +32,13 @@ return {
       -- control auto formatting on save
       format_on_save = {
         enabled = true, -- enable or disable format on save globally
-        allow_filetypes = { -- enable format on save for specified filetypes only
-          -- "go",
+        allow_filetypes = { -- enable format on save for specified filetypes only::
+          "python",
+          "go",
+          "lua",
+          "typescript",
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
-          -- "python",
         },
       },
       disabled = { -- disable formatting capabilities for the listed language servers
@@ -63,11 +65,12 @@ return {
       },
     },
   },
-
+  
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
+    vim.g.moonflyTransparent = true
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
